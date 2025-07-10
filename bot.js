@@ -4,6 +4,21 @@ const askHandler = require("./handlers/ask.handler");
 const helpHandler = require("./handlers/help.handler");
 const aboutHandler = require("./handlers/about.handler");
 
+// _______________________________________________________________
+// The express setup is just here to deploy the bot free on render to avoid background worker.
+const express = require('express');
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.get('/', (req, res) => {
+  res.send('hello world');
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
+// _______________________________________________________
+
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
 
 bot.onText(/\/start/, (msg) => {
