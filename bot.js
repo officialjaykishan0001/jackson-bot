@@ -3,7 +3,7 @@ const TelegramBot = require("node-telegram-bot-api");
 const askHandler = require("./handlers/ask.handler");
 const helpHandler = require("./handlers/help.handler");
 const aboutHandler = require("./handlers/about.handler");
-const { saveUserIfNew } = require("./utils/userTracker");
+const { saveUserIfNew, getUserCount } = require("./utils/userTracker");
 // _______________________________________________________________
 // The express setup is just here to deploy the bot for free on render to avoid background worker (paid service).
 const express = require("express");
