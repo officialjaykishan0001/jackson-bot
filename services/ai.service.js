@@ -18,10 +18,11 @@ async function askAI(question) {
     });
 
     const data = await res.json();
+    console.log(data)
     return data.choices[0].message.content.trim();
   } catch (err) {
     console.error("AI Error:", err.message);
-    return "⚠️ Sorry, I couldn't fetch an answer.";
+    return "Oops! I've hit my request limit for now. Please try again after sometime."
   }
 }
 
